@@ -32,8 +32,6 @@ const ORDER_STATUS_MAP = [
 export const ORDER_QUERY_KEY = '/api/get-order'
 
 export default function MyPage() {
-  const router = useRouter()
-
   const { data } = useQuery<{ items: OrderDetail[] }, unknown, OrderDetail[]>(
     [ORDER_QUERY_KEY],
     () =>

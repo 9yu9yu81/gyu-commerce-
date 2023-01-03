@@ -10,6 +10,7 @@ import { format } from 'date-fns'
 import { convertFromRaw, EditorState } from 'draft-js'
 import { GetServerSideProps, GetServerSidePropsContext } from 'next'
 import { useSession } from 'next-auth/react'
+import Head from 'next/head'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import Carousel from 'nuka-carousel'
@@ -98,7 +99,7 @@ export default function Products(props: {
         // Return a context object with the snapshotted value
         return { previous }
       },
-      onError: (error, _, context) => {
+      onError: (__, _, context) => {
         queryClient.setQueryData([WISHLIST_QUERY_KEY], context.previous)
       },
       onSuccess: () => {
@@ -192,6 +193,10 @@ export default function Products(props: {
     <>
       {product != null && productId != null ? (
         <div className="flex flex-row">
+          <Head>
+            <title>{product.name}</title>
+            <meta name="descript ion" content="commerce service" />
+          </Head>
           <div style={{ maxWidth: 600, marginRight: 30 }}>
             <Carousel
               animation="fade"

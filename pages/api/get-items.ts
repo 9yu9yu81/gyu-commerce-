@@ -30,10 +30,7 @@ type Data = {
   message: string
 }
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
+export default async function handler(_: NextApiRequest, res: NextApiResponse<Data>) {
   try {
     const response = await getItems()
     res.status(200).json({ items: response?.results, message: 'Success' })

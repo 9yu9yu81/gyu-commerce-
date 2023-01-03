@@ -1,8 +1,6 @@
 import AutoSizeImage from '@components/AutoSizeImage'
-import Button from '@components/Button'
 import CustomEditor from '@components/Editor'
 import { Slider } from '@mantine/core'
-import { IconFile } from '@tabler/icons'
 import { convertFromRaw, convertToRaw, EditorState } from 'draft-js'
 import { useRouter } from 'next/router'
 import { useEffect, useRef, useState } from 'react'
